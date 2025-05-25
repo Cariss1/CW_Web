@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Фоторедактор з авторизацією</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="auth-section" class="auth-container">
+      <h2>Увійти або зареєструватися</h2>
+      <input type="text" id="username" placeholder="Ім'я користувача">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Пароль">
+      <div class="auth-buttons">
+        <button onclick="register()">Реєстрація</button>
+        <button onclick="login()">Вхід</button>
+      </div>
+      <p id="auth-message"></p>
+    </div>
+
+    <div id="editor-section" style="display:none;">
+    <button id="logout-btn" onclick="logout()">🚪 Вийти</button>
+      <h1>Фоторедактор</h1>
+      <input type="file" id="upload" accept="image/*">
+      
+      <div class="controls">
+        <label>Яскравість: <input type="range" id="brightness" min="0" max="200" value="100"></label>
+        <label><input type="checkbox" id="grayscale"> Ч/Б</label>
+        <label><input type="checkbox" id="sepia"> Сепія</label>
+        <label><input type="checkbox" id="invert"> Інверт</label>
+        
+        <div class="action-buttons">
+          <button id="rotate">Повернути</button>
+          <button id="crop">Обрізати</button>
+          <button id="save">Зберегти</button>
+          <button id="download">Завантажити</button>
+        </div>
+      </div>
+      
+      <canvas id="canvas"></canvas>
+      
+      <div id="gallery">
+        <h3>Моя галерея:</h3>
+        <div id="gallery-photos" class="gallery-grid"></div>
+      </div>
+    </div>
+
+    <div id="admin-section" style="display:none;">
+  <h1>Адмін-панель</h1>
+  <button onclick="toggleEditorAdmin()">← До редактора</button>
+  <div id="admin-users-list"></div>
+  </div>
+
+  <button id="admin-btn" style="display:none;" onclick="toggleAdminPanel()">🔧 Адмін-панель</button>
+
+  </div>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
